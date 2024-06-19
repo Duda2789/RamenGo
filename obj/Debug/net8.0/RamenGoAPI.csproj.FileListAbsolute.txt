@@ -1,0 +1,7 @@
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.csproj.AssemblyReference.cache
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.AssemblyInfoInputs.cache
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.AssemblyInfo.cs
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.csproj.CoreCompileInputs.cache
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Projetos\RamenGoAPI\obj\Debug\net8.0\RamenGoAPI.MvcApplicationPartsAssemblyInfo.cache
