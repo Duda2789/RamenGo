@@ -31,7 +31,7 @@ namespace RamenGoAPI.Controllers
             var response = await _httpClient.GetAsync("proteins");
             if (!response.IsSuccessStatusCode)
             {
-                return StatusCode((int)response.StatusCode, new { error = "Failed to retrieve proteins" });
+                return StatusCode((int)response.StatusCode, new { error = "Erro ao encontrar as proteínas!" });
             }
 
             var proteins = await response.Content.ReadAsAsync<IEnumerable<Protein>>();
