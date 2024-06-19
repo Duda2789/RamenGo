@@ -27,7 +27,7 @@ public class OrdersController : ControllerBase
         var response = await _httpClient.PostAsync("orders/generate-id", null);
         if (!response.IsSuccessStatusCode)
         {
-            return StatusCode((int)response.StatusCode, new { error = "Failed to generate order ID" });
+            return StatusCode((int)response.StatusCode, new { error = "Erro ao criar o pedido!" });
         }
 
         var orderId = await response.Content.ReadAsStringAsync();
