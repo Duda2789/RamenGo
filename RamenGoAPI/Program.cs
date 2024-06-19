@@ -1,7 +1,6 @@
-using System.Net;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
+using System.Net;
 
 namespace RamenGoAPI
 {
@@ -11,14 +10,24 @@ namespace RamenGoAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.WebHost.ConfigureKestrel(serverOptions =>
+            if (builder.Environment.IsDevelopment())
             {
-                serverOptions.Listen(IPAddress.Any, 5000);
-                serverOptions.Listen(IPAddress.Any, 5001, listenOptions =>
+
+                builder.WebHost.ConfigureKestrel(serverOptions =>
                 {
-                    listenOptions.UseHttps();
+                    serverOptions.Listen(IPAddress.Any, 5000);
                 });
-            });
+            }
+            else
+            {
+                builder.WebHost.ConfigureKestrel(serverOptions =>
+                {
+                    serverOptions.Listen(IPAddress.Any, 5001, listenOptions =>
+                    {
+                        listenOptions.UseHttps();
+                    });
+                });
+            }
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddEndpointsApiExplorer();
