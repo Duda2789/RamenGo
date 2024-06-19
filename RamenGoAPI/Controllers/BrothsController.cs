@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace RamenGoAPI.Controllers
 {
@@ -34,7 +36,9 @@ namespace RamenGoAPI.Controllers
                 return StatusCode((int)response.StatusCode, new { error = "Erro ao encontrar os caldos!" });
             }
 
-            var broths = await response.Content.ReadAsAsync<IEnumerable<Broth>>();
+            var content = await response.Content.ReadAsStringAsync();
+            var broths = JsonConvert.DeserializeObject<IEnumerable<Broth>>(content);
+
             return Ok(broths);
         }
     }
