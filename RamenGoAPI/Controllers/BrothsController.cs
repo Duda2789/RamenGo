@@ -31,7 +31,7 @@ namespace RamenGoAPI.Controllers
             var response = await _httpClient.GetAsync("broths");
             if (!response.IsSuccessStatusCode)
             {
-                return StatusCode((int)response.StatusCode, new { error = "Failed to retrieve broths" });
+                return StatusCode((int)response.StatusCode, new { error = "Erro ao encontrar os caldos!" });
             }
 
             var broths = await response.Content.ReadAsAsync<IEnumerable<Broth>>();
