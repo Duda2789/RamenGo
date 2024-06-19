@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace RamenGoAPI.Controllers
 {
@@ -34,7 +35,9 @@ namespace RamenGoAPI.Controllers
                 return StatusCode((int)response.StatusCode, new { error = "Erro ao encontrar as proteínas!" });
             }
 
-            var proteins = await response.Content.ReadAsAsync<IEnumerable<Protein>>();
+            var content = await response.Content.ReadAsStringAsync();
+            var proteins = JsonConvert.DeserializeObject<IEnumerable<Protein>>(content);
+
             return Ok(proteins);
         }
     }
